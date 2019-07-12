@@ -20,6 +20,6 @@ class CheckinController extends Controller
 
         request()->session()->flash('status', 'You checked in at ' . $location->description);
 
-        return redirect()->back();
+        return redirect()->action('HomeController@index');
     }
 }
