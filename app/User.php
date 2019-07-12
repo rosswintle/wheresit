@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Location;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'last_location', 'last_location_timestamp',
     ];
 
     /**
@@ -36,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function last_location()
+    {
+        return $this->belongsTo(Location::class, 'last_location_id');
+    }
+
+    public function updateLastLocation(Location $location)
+    {
+        $this->last_location_id = $location->id;
+        $this->last_location_timestamp = date('Y-m-d H:i:s');
+        $this->save();
+    }
 }

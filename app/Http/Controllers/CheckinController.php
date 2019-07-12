@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\LocationNotification;
 use App\Location;
 
@@ -17,6 +18,8 @@ class CheckinController extends Controller
             Mail::to($subscriber->email)
                 ->send(new LocationNotification($location, $subscriber));
         } );
+
+        Auth::user()->updateLastLocation($location);
 
         request()->session()->flash('status', 'You checked in at ' . $location->description);
 
