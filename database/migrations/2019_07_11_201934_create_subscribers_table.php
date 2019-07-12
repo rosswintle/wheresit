@@ -15,11 +15,11 @@ class CreateSubscribersTable extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('email');
-            $table->bigInteger('vendor_id')->unsigned();
-            $table->foreign('vendor_id')->references('id')->on('users');
+            $table->string('email');
+            $table->string('name');
             $table->bigInteger('location_id')->unsigned();
             $table->foreign('location_id')->references('id')->on('locations');
+            $table->timestamps();
         });
     }
 

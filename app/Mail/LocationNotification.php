@@ -8,6 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Location;
 use App\User;
+use App\Subscriber;
 
 class LocationNotification extends Mailable
 {
@@ -15,16 +16,18 @@ class LocationNotification extends Mailable
 
     public $vendor;
     public $location;
+    public $subscriber;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Location $location)
+    public function __construct(Location $location, Subscriber $subscriber)
     {
-        $this->vendor   = $location->vendor;
-        $this->location = $location;
+        $this->vendor     = $location->vendor;
+        $this->location   = $location;
+        $this->subscriber = $subscriber;
     }
 
     /**

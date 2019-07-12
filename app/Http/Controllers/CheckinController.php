@@ -15,7 +15,7 @@ class CheckinController extends Controller
         $subscribers = $location->subscribers;
         $subscribers->each( function($subscriber) use ($location) {
             Mail::to($subscriber->email)
-                ->send(new LocationNotification($location));
+                ->send(new LocationNotification($location, $subscriber));
         } );
 
         request()->session()->flash('status', 'You checked in at ' . $location->description);

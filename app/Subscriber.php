@@ -7,6 +7,7 @@ use App\Location;
 
 class Subscriber extends Model
 {
+    protected $guarded = [];
 
     public function location()
     {
