@@ -103,7 +103,7 @@
 
                 <p>
                     @if ($vendor->last_location)
-                        {{ $vendor->name }} was last seen at {{ $vendor->last_location->description }} on {{ $vendor->last_location_timestamp }}
+                        {{ $vendor->name }} was last seen at {{ $vendor->last_location->description }} on {{ date('l jS F \a\t h:ia', strtotime($vendor->last_location_timestamp)) }}
                     @else
                         {{ $vendor->name }} has not checked in yet
                     @endif
