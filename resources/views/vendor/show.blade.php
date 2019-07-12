@@ -107,7 +107,6 @@
                     @else
                         {{ $vendor->name }} has not checked in yet
                     @endif
-                    }
                 </p>
             </div>
         </div>
