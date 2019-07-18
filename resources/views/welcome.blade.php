@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
 
             <div class="content">
                 <h1>
