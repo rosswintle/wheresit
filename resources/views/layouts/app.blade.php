@@ -18,43 +18,51 @@
 <body>
     <header class="container">
         <nav class="row">
-            <a class="logo-link" href="{{ url('/') }}">
-                {{ config('app.name', 'WheresIt') }}
-            </a>
+            <div class="col-auto">
+                <a class="logo-link" href="{{ url('/') }}">
+                    {{ config('app.name', 'WheresIt') }}
+                </a>
+            </div>
 
-            <ul class="navbar-nav">
+            <div class="col-auto">
+                <ul class="navbar-nav">
 
-                    @auth
-                        <li>
-                            <a href="{{ url('/home') }}">Home</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        @auth
+                            <li>
+                                <a href="{{ url('/home') }}">Home</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
-                    @else
-                        <li>
-                            <a href="{{ route('login') }}">Vendor Login</a>
-                        </li>
-                    @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ route('login') }}">Vendor Login</a>
+                            </li>
+                        @endauth
 
-            </ul>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <div class="alerts container">
-        @if (session('status'))
-            <div class="alert success" role="alert">
-                {{ session('status') }}
+        <div class="row">
+            <div class="col-12">
+                @if (session('status'))
+                    <div class="alert success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
             </div>
-        @endif
+        </div>
     </div>
 
     <main>
