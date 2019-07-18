@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row flex-center">
-        <div class="col-md-8">
+        <div class="col-12 col-md-8">
             <h2>Check In</h2>
 
             <p>
