@@ -106,7 +106,7 @@
                         <label for="name">
                             My name is
                         </label>
-                        <input type="text" name="name" id="name" required>
+                        <input type="text" name="name" id="name" required placeholder="Your name">
                     </p>
                     <p>
                         <label for="vendor">
@@ -142,7 +142,7 @@
                         <label for="email">
                             by getting an email to
                         </label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" required placeholder="Your email address">
                     </p>
                     <p>
                         <input type="submit" value="Subscribe">
