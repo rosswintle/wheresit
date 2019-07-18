@@ -17,10 +17,10 @@
                         <input type="text" name="name" id="name" required placeholder="Your name">
                     </p>
                     <p>
-                        <label for="vendor">
+                        <label for="vendor-input">
                             and I want to know when
                         </label>
-                        <select name="user_id" id="vendor">
+                        <select name="user_id" id="vendor-input">
                             <option value="">
                                 Choose a vendor
                             </option>
@@ -32,15 +32,15 @@
                         </select>
                     </p>
                     <p>
-                        <label for="location">
+                        <label for="location-input">
                             is at
                         </label>
-                        <select name="location_id" id="location">
+                        <select name="location_id" id="location-input">
                             <option value="">
                                 Choose a location
                             </option>
                             @foreach ($locations as $location)
-                                <option value="{{ $location->id }}">
+                                <option data-vendor="{{ $location->vendor_id }}" value="{{ $location->id }}">
                                     {{ $location->description }}
                                 </option>
                             @endforeach
