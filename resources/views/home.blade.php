@@ -2,29 +2,28 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row flex-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Check In</div>
+            <h2>Check In</h2>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <p>
+                <small>Last check in</small><br>
+                @if ($user->last_location_timestamp)
+                    {{ $user->last_location->description }}, {{ Carbon\Carbon::create($user->last_location_timestamp)->diffForHumans() }}
+                @else
+                    You've not checked in yet
+                @endif
+            </p>
+            <ul class="check-in-list">
+                @foreach ($locations as $location)
+                    <li>
+                        <a class="button" href="{{ action( 'CheckinController@create', [ 'location' => $location ] ) }}">
+                            {{ $location->description }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
 
-                    <ul>
-                        @foreach ($locations as $location)
-                            <li>
-                                <a href="{{ action( 'CheckinController@create', [ 'location' => $location ] ) }}">
-                                    {{ $location->description }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 </div>

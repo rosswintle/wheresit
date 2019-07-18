@@ -41,7 +41,7 @@
 
 @media (min-width: 576px) {
   :root {
-    --news-grid-article-width: calc( 50% - ( 2 * var(--grid-gutter) ) );
+
   }
 }
 
@@ -81,6 +81,7 @@ body {
   color: var(--text-black);
   text-align: left;
   background-color: var(--white);
+  min-height: 100vh;
 }
 
 [tabindex="-1"]:focus {
@@ -1022,11 +1023,29 @@ small,
 }
 
 /*
+ * Utilities
+ */
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+
+/*
  Header
  */
 header {
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #CCC;
+  padding: 1.5rem 0;
 }
 header .row {
   display: flex;
@@ -1034,13 +1053,10 @@ header .row {
   justify-content: space-between;
   align-items: center;
 }
-header .logo {
+header .logo-link {
   display: block;
   width: 180px;
   height: auto;
-}
-header .logo-link {
-  display: block;
 }
 header nav {
   display: block;
@@ -1127,20 +1143,20 @@ input[type="submit"] {
  Forms
   - Note that submit inputs are styled with buttons
  */
-.form-alert {
+.alert {
   padding: 0.5rem 1.5rem;
   border: 1px solid var(--medium-grey);
   border-radius: var(--button-border-radius);
   margin: 1.5rem 0;
 }
-.form-alert.error {
+.alert.error {
   background-color: var(--error-bg-colour);
 }
-.form-alert.success {
+.alert.success {
   background-color: var(--success-bg-colour);
 }
-.form-alert p:last-child,
-.form-alert ul:last-child {
+.alert p:last-child,
+.alert ul:last-child {
   margin-bottom: 0;
 }
 
@@ -1172,4 +1188,59 @@ form textarea {
 .form-note {
   font-size: 0.9rem;
   font-style: italic;
+}
+
+
+/*
+ * Subscribe form
+ */
+.subscribe-form label {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.subscribe-form input[type="text"],
+.subscribe-form input[type="email"] {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+.subscribe-form input[type="submit"] {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #999;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.subscribe-form input[type="submit"]:hover,
+.subscribe-form input[type="submit"]:active,
+.subscribe-form input[type="submit"]:focus {
+    background-color: #CCC;
+}
+
+.subscribe-form select {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+/*
+ * Check-in list
+ */
+.check-in-list {
+  padding: 0;
+  list-style: none;
+}
+.check-in-list li {
+  padding: 0.5rem 0;
+}
+.check-in-list a {
+
 }

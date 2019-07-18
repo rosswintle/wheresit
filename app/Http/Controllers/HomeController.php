@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Location;
 
 class HomeController extends Controller
@@ -28,6 +29,7 @@ class HomeController extends Controller
         return view('home')
             ->with([
                 'locations' => $myLocations,
+                'user'     => Auth::user(),
             ]);
     }
 }
